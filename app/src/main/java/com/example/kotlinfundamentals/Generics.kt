@@ -6,20 +6,17 @@ fun main() {
     val question3 = Question("How many days are there between full moons?", 28, Difficulty.HARD)
 
     println("QUIZ 1:")
-    println("First Question: ${question1.questionText} ------- difficulty: ${question1.difficulty}")
-    println("Answer: ${question1.answer}")
+    println("First $question1")
     println("==================================================")
     println("")
-    println("Second Question: ${question2.questionText} ------- difficulty: ${question2.difficulty}")
-    println("Answer: ${question2.answer}")
+    println("Second $question2")
     println("==================================================")
     println("")
-    println("Third Question: ${question3.questionText} ------- difficulty: ${question3.difficulty}")
-    println("Answer: ${question3.answer}")
+    println("Third $question3")
 }
 
 
-class Question<T>(
+data class Question<T>(
     val questionText: String,
     val answer: T,
     val difficulty: Difficulty
