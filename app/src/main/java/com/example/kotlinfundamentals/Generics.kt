@@ -1,9 +1,9 @@
 package com.example.kotlinfundamentals
 
 fun main() {
-    val quiz = Quiz()
-    quiz.printProgressBar()
-
+    Quiz().apply {
+        printQuiz()
+    }
 }
 
 
@@ -44,4 +44,23 @@ class Quiz: ProgressPrintable {
     }
 
 
+    fun printQuiz() {
+        question1.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question2.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+        println()
+        question3.let {
+            println(it.questionText)
+            println(it.answer)
+            println(it.difficulty)
+        }
+    }
 }
