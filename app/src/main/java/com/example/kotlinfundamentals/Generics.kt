@@ -1,7 +1,9 @@
 package com.example.kotlinfundamentals
 
 fun main() {
-    Quiz.printProgressBar()
+    val quiz = Quiz()
+    quiz.printProgressBar()
+
 }
 
 
@@ -15,9 +17,12 @@ enum class Difficulty {
     EASY, MEDIUM, HARD
 }
 
+interface ProgressPrintable {
+    val progressText: String
+    fun printProgressBar()
+}
 
-
-class Quiz {
+class Quiz: ProgressPrintable {
 
     val question1 = Question("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
     val question2 = Question("The sky is green. True or false?", false, Difficulty.EASY)
@@ -28,16 +33,15 @@ class Quiz {
         var answered: Int = 3
     }
 
+    override val progressText: String
+        get() = "$answered of $total answered"
 
-}
+    override fun printProgressBar() {
+        repeat(answered) { print("▓") }
+        repeat(total - answered) { print("▒") }
+        println()
+        println(progressText)
+    }
 
-val Quiz.StudentProgress.progressText: String
-    get() = "${answered} of ${total} answered"
 
-
-fun Quiz.StudentProgress.printProgressBar() {
-    repeat(Quiz.answered) { print("▓") }
-    repeat(Quiz.total - Quiz.answered) { print("▒") }
-    println()
-    println(Quiz.progressText)
 }
