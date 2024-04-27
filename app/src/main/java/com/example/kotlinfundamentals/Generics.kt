@@ -1,18 +1,7 @@
 package com.example.kotlinfundamentals
 
 fun main() {
-    val question1 = Question("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
-    val question2 = Question("The sky is green. True or false?", false, Difficulty.EASY)
-    val question3 = Question("How many days are there between full moons?", 28, Difficulty.HARD)
-
-    println("QUIZ 1:")
-    println("First $question1")
-    println("==================================================")
-    println("")
-    println("Second $question2")
-    println("==================================================")
-    println("")
-    println("Third $question3")
+    Quiz.printProgressBar()
 }
 
 
@@ -24,4 +13,31 @@ data class Question<T>(
 
 enum class Difficulty {
     EASY, MEDIUM, HARD
+}
+
+
+
+class Quiz {
+
+    val question1 = Question("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
+    val question2 = Question("The sky is green. True or false?", false, Difficulty.EASY)
+    val question3 = Question("How many days are there between full moons?", 28, Difficulty.HARD)
+
+    companion object StudentProgress {
+        var total: Int = 10
+        var answered: Int = 3
+    }
+
+
+}
+
+val Quiz.StudentProgress.progressText: String
+    get() = "${answered} of ${total} answered"
+
+
+fun Quiz.StudentProgress.printProgressBar() {
+    repeat(Quiz.answered) { print("▓") }
+    repeat(Quiz.total - Quiz.answered) { print("▒") }
+    println()
+    println(Quiz.progressText)
 }
