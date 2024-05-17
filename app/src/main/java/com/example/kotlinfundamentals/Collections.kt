@@ -62,4 +62,21 @@ fun main() {
 
     println(solarSystem2.contains("Pluto"))
     println("Future Moon" in solarSystem2)
+
+    println("===== Set and MutableSet =====")
+
+    // Set and MutableSet
+
+    val solarSystemMS = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+
+    println(solarSystemMS.size)
+
+    solarSystemMS.add("Pluto")
+
+    println(solarSystemMS.size)
+    println(solarSystemMS.contains("Pluto"))
+    println("Mercury" in solarSystemMS)
+
+    solarSystemMS.remove("Pluto")
+    println("Pluto" in solarSystemMS)
 }
