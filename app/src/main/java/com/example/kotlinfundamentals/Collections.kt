@@ -67,7 +67,7 @@ fun main() {
 
     // Set and MutableSet
 
-    val solarSystemMS = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    val solarSystemMS = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Neptune")
 
     println(solarSystemMS.size)
 
@@ -79,4 +79,41 @@ fun main() {
 
     solarSystemMS.remove("Pluto")
     println("Pluto" in solarSystemMS)
+
+
+    println("===== Maps =====")
+
+    // Maps
+
+    val solarSystemMap = mutableMapOf(
+        "Mercury" to 0,
+        "Venus" to 0,
+        "Earth" to 1,
+        "Mars" to 1,
+        "Jupiter" to 2,
+        "Saturn" to 82,
+        "Uranus" to 27,
+        "Neptune" to 14,
+        "Neptune" to 1 // number 1 will override number 14 of key "Neptune"
+    )
+
+    println(solarSystemMap.size)
+
+    solarSystemMap["Pluto"] = 5
+
+    println(solarSystemMap.size)
+
+    println(solarSystemMap["Pluto"])
+
+    println(solarSystemMap.get("Theia"))
+    println(solarSystemMap.get("Neptune")) // Neptune key was overridden with value 1
+
+    solarSystemMap.remove("Neptune")
+
+    println(solarSystemMap.get("Neptune"))
+
+    solarSystemMap.put("Mars", 4444)
+
+    println(solarSystemMap.get("Mars"))
+
 }
