@@ -1,8 +1,5 @@
 package com.example.kotlinfundamentals
 
-import android.util.Log
-import kotlin.math.log
-
 fun main() {
     cookies.forEach {
         println("Menu item: ${it.name}")
